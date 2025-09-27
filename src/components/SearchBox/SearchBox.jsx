@@ -1,6 +1,7 @@
 import { useId } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { changeFilter  } from "../../redux/filtersSlice"
+import { changeFilter } from "../../redux/filtersSlice"
+import css from "./SearchBox.module.css"
 
 const SearchBox = () => {
 
@@ -18,7 +19,7 @@ const SearchBox = () => {
     <>
        <label htmlFor={searchId}>Find contacts by name</label> 
         
-      <input  type="search" value={filter} name="" id={searchId} onChange={handleChange} />
+      <input className={css.search} type="search" value={filter} name="" id={searchId} onChange={handleChange} />
     </>
   )
 }
