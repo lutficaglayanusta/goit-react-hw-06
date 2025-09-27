@@ -2,8 +2,13 @@ import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 
 const ContactList = () => {
-  const contacts = useSelector((state) => state.contacts.items);
-  console.log(contacts)
+  let contacts = useSelector((state) => state.contacts.items);
+  const filter = useSelector(state => state.filters.name)
+
+  if (filter !== "") {
+    contacts = contacts.filter(contact => contact.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1)
+  }
+  
   return (
     <div>
       <ul>
